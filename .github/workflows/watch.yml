@@ -1,7 +1,9 @@
 name: watch
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "30-55/5 19 * * *"     # 8:30–8:55am NZ
+    - cron: "*/5 20-23,0-7 * * *"  # 9:00am–8:55pm NZ
+    - cron: "0 8 * * *"            # 9:00pm NZ
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,6 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
       - name: Save seen sessions
         run: |
-          git config user.name watcher
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seen.json 2>/dev/null && git commit -m "seen sessions" && git push || true
