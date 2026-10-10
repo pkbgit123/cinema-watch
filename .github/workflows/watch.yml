@@ -1,0 +1,22 @@
+name: watch
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python watch.py
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      - name: Save seen sessions
+        run: |
+          git config user.name watcher
+          git config user.email watcher@users.noreply.github.com
+          git add seen.json 2>/dev/null && git commit -m "seen sessions" && git push || true
