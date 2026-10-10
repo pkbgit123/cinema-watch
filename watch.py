@@ -3,7 +3,7 @@ import json, os, re, sys, urllib.request
 from pathlib import Path
 
 URL = "https://www.lighthousecinema.co.nz/schedule/film/you-can-see-everything"
-FILM_TITLE = "You can see everything"  # sanity check: page really loaded, not a Cloudflare challenge
+FILM_TITLE = "You Can See Everything"  # sanity check: page really loaded, not a Cloudflare challenge
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "")  # repo secret
 STATE = Path(__file__).with_name("seen.json")
 
