@@ -18,5 +18,5 @@ jobs:
       - name: Save seen sessions
         run: |
           git config user.name watcher
-          git config user.email watcher@users.noreply.github.com
-          git add seen.json 2>/dev/null && git commit -m "seen sessions" && git push || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
