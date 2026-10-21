@@ -1,9 +1,9 @@
 name: watch
 on:
-  schedule:
-  - cron: "32-57/5 19 * * *"       # 8:32–8:57am NZ
-  - cron: "2-57/5 20-23,0-7 * * *" # 9:02am–8:57pm NZ
-  - cron: "2 8 * * *"              # 9:02pm NZ
+  #schedule:
+  #- cron: "32-57/5 19 * * *"       # 8:32–8:57am NZ
+  #- cron: "2-57/5 20-23,0-7 * * *" # 9:02am–8:57pm NZ
+  #- cron: "2 8 * * *"              # 9:02pm NZ
   workflow_dispatch:
 
 permissions:
